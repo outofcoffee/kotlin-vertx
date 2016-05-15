@@ -10,6 +10,7 @@ buildscript {
 }
 
 apply plugin: "kotlin"
+apply plugin: "application"
 
 repositories {
     mavenCentral()
@@ -22,6 +23,9 @@ dependencies {
     testCompile 'junit:junit:4.11'
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 }
+
+mainClassName = 'io.vertx.core.Launcher'
+applicationDefaultJvmArgs = [ 'io.vertx.core.Launcher', 'run', 'com.gatehill.example.ExampleVerticle' ]
 
 task wrapper(type: Wrapper) {
     gradleVersion = "2.13"
